@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Service | منصة الخدمات</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="authView" class="card auth-card">
+      <div class="brand"><div class="logo">S</div><div><h1>Service</h1><p>منصة الخدمات</p></div></div>
+      <div class="tabs"><button class="tab active" data-tab="login">تسجيل الدخول</button><button class="tab" data-tab="register">حساب جديد</button></div>
+      <form id="loginForm" class="form">
+        <label>البريد الإلكتروني<input id="loginEmail" type="email" required autocomplete="email"></label>
+        <label>كلمة المرور<input id="loginPassword" type="password" required autocomplete="current-password"></label>
+        <button class="primary" type="submit">دخول</button>
+      </form>
+      <form id="registerForm" class="form hidden">
+        <label>الاسم<input id="regName" required></label>
+        <label>البريد الإلكتروني<input id="regEmail" type="email" required autocomplete="email"></label>
+        <label>كلمة المرور<input id="regPassword" type="password" minlength="6" required autocomplete="new-password"></label>
+        <button class="primary" type="submit">إنشاء حساب</button>
+      </form>
+      <p id="authMsg" class="msg"></p>
+    </section>
+
+    <section id="homeView" class="hidden">
+      <header class="topbar">
+        <div><strong>Service</strong><span id="welcome"></span></div>
+        <button id="logoutBtn" class="ghost">تسجيل الخروج</button>
+      </header>
+      <div class="balance"><span>الرصيد</span><strong id="balance">0.00</strong><small> د.ل</small></div>
+      <h2>الخدمات</h2>
+      <div id="services" class="grid">
+        <button class="service" data-service="شحن رصيد"><span>💳</span><b>شحن رصيد</b><small>إضافة رصيد إلى الحساب</small></button>
+        <button class="service" data-service="خدمة رقمية"><span>⚡</span><b>خدمة رقمية</b><small>طلب خدمة رقمية</small></button>
+        <button class="service" data-service="طلب جديد"><span>🛒</span><b>طلب جديد</b><small>إنشاء طلب خدمة</small></button>
+      </div>
+      <section class="panel">
+        <h2>طلباتك</h2>
+        <div id="orders" class="empty">لا توجد طلبات حتى الآن</div>
+      </section>
+    </section>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-card">
+        <button id="closeModal" class="close">×</button>
+        <h2 id="modalTitle">طلب خدمة</h2>
+        <form id="orderForm" class="form">
+          <label>البيانات المطلوبة<textarea id="orderData" rows="4" placeholder="اكتب البيانات المطلوبة للخدمة" required></textarea></label>
+          <label>المبلغ<input id="orderAmount" type="number" min="0" step="0.01" required></label>
+          <button class="primary" type="submit">تأكيد الطلب</button>
+        </form>
+        <p id="orderMsg" class="msg"></p>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
